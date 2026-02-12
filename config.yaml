@@ -1,0 +1,30 @@
+data:
+  training_dir: data/training
+  feature_columns:
+    - timestamp
+    - instantaneous_power
+    - pedal_power_balance
+    - accumulated_torque
+    - cumulative_wheel_revs
+    - last_wheel_event_time
+    - cumulative_crank_revs
+    - last_crank_event_time
+    - maximum_force_magnitude
+    - minimum_force_magnitude
+    - maximum_torque_magnitude
+    - minimum_torque_magnitude
+    - top_dead_spot_angle
+    - bottom_dead_spot_angle
+    - accumulated_energy
+  target_column: label
+
+model:
+  type: random_forest  # random_forest, gradient_boosting, svm
+  params:
+    n_estimators: 100
+    random_state: 42
+  output_dir: models/
+
+training:
+  test_size: 0.2
+  random_state: 42
