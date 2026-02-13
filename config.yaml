@@ -3,19 +3,12 @@ data:
   feature_columns:
     - timestamp
     - instantaneous_power
+    - left_power
+    - right_power
     - pedal_power_balance
     - accumulated_torque
-    - cumulative_wheel_revs
-    - last_wheel_event_time
     - cumulative_crank_revs
     - last_crank_event_time
-    - maximum_force_magnitude
-    - minimum_force_magnitude
-    - maximum_torque_magnitude
-    - minimum_torque_magnitude
-    - top_dead_spot_angle
-    - bottom_dead_spot_angle
-    - accumulated_energy
   target_column: label
 
 model:
