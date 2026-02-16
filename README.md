@@ -62,6 +62,21 @@ Run predictions on a new CSV file:
 python main.py predict --input path/to/data.csv
 ```
 
+## Model
+
+The pipeline uses a scikit-learn `Pipeline` with two stages:
+
+1. **Preprocessing** — imputes missing values (mean strategy) and applies standard scaling (`SimpleImputer` + `StandardScaler`)
+2. **Classifier** — one of three supported model types, configured via `model.type` in `config.yaml`:
+
+| Model Type          | Class                        | Default |
+|---------------------|------------------------------|---------|
+| `random_forest`     | `RandomForestClassifier`     | Yes     |
+| `gradient_boosting` | `GradientBoostingClassifier` |         |
+| `svm`               | `SVC`                        |         |
+
+The default configuration uses Random Forest with 100 estimators. Model parameters can be customised under `model.params` in `config.yaml`.
+
 ## Configuration
 
 All settings are in `config.yaml`:
